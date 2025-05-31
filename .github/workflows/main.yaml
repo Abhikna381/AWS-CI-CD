@@ -61,8 +61,7 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-          
-          
+
   Continuous-Deployment:
     needs: build-and-push-ecr-image
     runs-on: self-hosted
@@ -87,10 +86,9 @@ jobs:
          docker image prune -a -f
          docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
          
-      # - name: Stop and remove  container if running
-      #   run: |
-      #    docker ps -q --filter "name=mltest" | grep -q . && docker stop mltest && docker rm -fv mltest
-       
+    #- name: Stop and remove  container if running
+       # run: |
+        # docker ps -q --filter "name=networksecurity" | grep -q . && docker stop networksecurity && docker rm -fv networksecurity
       - name: Run Docker Image to serve users
         run: |
          docker stop mltest
