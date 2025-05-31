@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 from flask import Flask,request,render_template
 import numpy as np
+=======
+from flask import Flask,request,render_template 
+import numpy as np 
+>>>>>>> 73def530304dec20d82f34bfc3515c8f17a3dbf4
 import pandas as pd  
 
 
