@@ -6,19 +6,24 @@
 
 ## Docker Setup In EC2 commands to be Executed
 
-#optinal
+## OPTIONAL:
 
 sudo apt-get update -y
 
 sudo apt-get upgrade
 
-#required
+## REQUIRED:
 
 curl -fsSL https://get.docker.com -o get-docker.sh
 
+#sudo dnf install docker -y
+#sudo systemctl start docker
+#sudo systemctl enable docker
+
 sudo sh get-docker.sh
 
-sudo usermod -aG docker ubuntu
+sudo usermod -aG docker ubuntu #ubuntu is username in ubuntu based ec2 instance
+sudo usermod -aG docker ec2-user
 
 newgrp docker
 
